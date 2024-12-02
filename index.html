@@ -242,6 +242,45 @@
     });
   </script>
   
+<!-- Tambahkan elemen audio untuk notifikasi -->
+<audio id="notif-sound" src="music/iPhone Notification Sound.mp3"></audio> <!-- Ganti dengan path file audio Anda -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const findMeLink = document.getElementById('kontak');
+    const notifSound = document.getElementById('notif-sound');
+
+    findMeLink.addEventListener('click', function (event) {
+      event.preventDefault(); // Mencegah navigasi langsung
+      
+      // Memutar suara notifikasi
+      notifSound.play()
+        .then(() => {
+          console.log('Suara notifikasi diputar.');
+        })
+        .catch((error) => {
+          console.error('Gagal memutar suara notifikasi:', error);
+        });
+
+      // Menampilkan SweetAlert
+      Swal.fire({
+        position: 'center',
+        title: 'Selamat!',
+        text: 'Anda sekarang telah menemukan saya.',
+        icon: 'success', // Tampilkan icon (success, error, warning, info, question)
+        showConfirmButton: false, // Tidak ada tombol konfirmasi
+        timer: 3000, // Durasi alert tampil 3 detik
+        timerProgressBar: true,
+        customClass: {
+          popup: 'small-swal-popup', // Tambahkan kelas CSS khusus
+        }
+      }).then(() => {
+        window.location.hash = '#contact'; // Arahkan ke bagian #contact setelah alert
+      });
+    });
+  });
+</script>
+
 
 
 <script>
