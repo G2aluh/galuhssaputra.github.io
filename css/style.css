@@ -3,7 +3,9 @@
 
     --bg: #000;
 }
-
+html {
+    scroll-behavior: smooth;
+  }
 * {
 
     margin: 0;

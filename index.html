@@ -14,6 +14,8 @@
     />
     <!-- font -->
 
+
+
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="css/style.css" />
@@ -217,6 +219,29 @@
     }
   
   </script>
+
+<script>
+    // Fungsi untuk smooth scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbarLinks = document.querySelectorAll('.navbar-nav a'); // Pilih semua tautan di navbar
+  
+      navbarLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault(); // Mencegah navigasi default
+          const targetId = this.getAttribute('href').substring(1); // Ambil ID target dari href
+          const targetElement = document.getElementById(targetId); // Temukan elemen dengan ID tersebut
+  
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth', // Scroll dengan animasi
+              block: 'start', // Mulai scroll dari awal elemen
+            });
+          }
+        });
+      });
+    });
+  </script>
+  
 
 
 <script>
