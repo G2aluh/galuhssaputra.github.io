@@ -421,13 +421,13 @@ footer .credit a{
 }
 
 .lahir{
-    color: var(--primary);
+    color: #fff;
 
     font-weight: 500;
 }
 
 .lahir:hover{
-    color: #fff;
+    color:var(--primary);
 }
 
 .menu-card-img{
