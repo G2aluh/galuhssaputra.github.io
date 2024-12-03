@@ -43,7 +43,7 @@
 
         <a href="#menu">Menu</a>
 
-        <a href="#contact" id="kontak">FindMe</a>
+        <a href="#contact" id="kontak">ContactMe</a>
 
     </div>
     
@@ -128,7 +128,7 @@
 <!-- Contact section start -->
 <section id="contact" class="contact">
   <h2><span>Hubungi</span> Saya</h2>
-  <p>Ini adalah tempat saya tinggal, silahkan datang kapanpun anda mau!</p>
+  <p>Ini adalah tempat saya tinggal, silahkan datang kapanpun anda mau! jangan lupa tinggalkan pesan untuk saya</p>
 
   <div class="row">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31597.984319566316!2d112.43535204999998!3d-8.127114999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7899d0ca427c55%3A0x56dc2a4db88c0a3d!2sOlak%20Alen%2C%20Kec.%20Selorejo%2C%20Kabupaten%20Blitar%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1732524684525!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
@@ -136,13 +136,13 @@
 
   <!-- Formulir Pengiriman Pesan -->
   <form id="contactForm" action="https://formspree.io/f/mldeavew" method="POST">
-      <label for="name">Nama:</label>
+      <label for="name">Nama Kamu :</label>
       <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
       
-      <label for="email">Email:</label>
+      <label for="email">Email Kamu :</label>
       <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
       
-      <label for="message">Pesan:</label>
+      <label for="message">Pesan Untuk Saya :</label>
       <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
       
       <button type="submit">Kirim Pesan</button>
@@ -165,7 +165,7 @@
         <a href="#home" id="homeLink">Home</a>
         <a href="#about">AboutMe</a>
         <a href="#menu">Menu</a>
-        <a href="#contact">FindMe</a>
+        <a href="#contact">ContactMe</a>
     </div>
 
     <div class="credit">
@@ -183,27 +183,40 @@
 
     <!-- Audio untuk musik -->
     <audio id="background-music" src="music/sadsong.mp3"></audio> <!-- Ganti 'music.mp3' dengan path musik Anda -->
-    <script>
-        Swal.fire({
-            title: 'Hallo Semua!',
-            text: 'Baca semua hal tentang saya sambil mendengarkan musik',
-            icon: 'info', // Pilihan: 'success', 'error', 'warning', 'info', 'question'
-            confirmButtonText: 'Baca'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Memutar musik saat tombol "Baca" diklik
-                showTimeAlert();  
-                const audio = document.getElementById('background-music');
-                audio.play()
-                    .then(() => {
-                        console.log('Musik diputar');
-                    })
-                    .catch((error) => {
-                        console.error('Gagal memutar musik:', error);
-                    });
-            }
-        });
-    </script>
+   <script>
+    Swal.fire({
+        title: 'Hallo Semua!',
+        text: 'Baca semua hal tentang saya sambil mendengarkan musik',
+        icon: 'info', // Pilihan: 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: 'Baca'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Memutar musik latar
+            const audio = document.getElementById('background-music');
+            audio.play()
+                .then(() => {
+                    console.log('Musik diputar');
+                })
+                .catch((error) => {
+                    console.error('Gagal memutar musik:', error);
+                });
+
+            // Memutar suara notifikasi
+            const notifSound = document.getElementById('notif-sound');
+            notifSound.play()
+                .then(() => {
+                    console.log('Suara notifikasi diputar');
+                })
+                .catch((error) => {
+                    console.error('Gagal memutar suara notifikasi:', error);
+                });
+
+            // Menampilkan waktu (fungsi showTimeAlert())
+            showTimeAlert();
+        }
+    });
+</script>
+
 
     
 <script>
@@ -255,68 +268,6 @@
   
 <!-- Tambahkan elemen audio untuk notifikasi -->
 <audio id="notif-sound" src="music/iPhone Notification Sound.mp3"></audio> <!-- Ganti dengan path file audio Anda -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const findMeLink = document.getElementById('kontak');
-    const notifSound = document.getElementById('notif-sound');
-
-    findMeLink.addEventListener('click', function (event) {
-      event.preventDefault(); // Mencegah navigasi langsung
-      
-      // Memutar suara notifikasi
-      notifSound.play()
-        .then(() => {
-          console.log('Suara notifikasi diputar.');
-        })
-        .catch((error) => {
-          console.error('Gagal memutar suara notifikasi:', error);
-        });
-
-      // Menampilkan SweetAlert
-      Swal.fire({
-        position: 'center',
-        title: 'Selamat!',
-        text: 'Anda sekarang telah menemukan saya.',
-        icon: 'success', // Tampilkan icon (success, error, warning, info, question)
-        showConfirmButton: false, // Tidak ada tombol konfirmasi
-        timer: 3000, // Durasi alert tampil 3 detik
-        timerProgressBar: true,
-        customClass: {
-          popup: 'small-swal-popup', // Tambahkan kelas CSS khusus
-        }
-      }).then(() => {
-        window.location.hash = '#contact'; // Arahkan ke bagian #contact setelah alert
-      });
-    });
-  });
-</script>
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const homeLink = document.getElementById('kontak');
-
-  homeLink.addEventListener('click', function (event) {
-    event.preventDefault(); // Mencegah default action (navigasi langsung)
-    Swal.fire({
-        position: 'center', 
-      title: 'Selamat!',
-      text: 'Anda sekarang telah menemukan saya.',
-      icon: 'success', // Tampilkan icon (success, error, warning, info, question)
-      showConfirmButton: false, // Tidak ada tombol konfirmasi
-        timer: 3000, // Durasi alert tampil 3 detik
-        timerProgressBar: true, 
-        customClass: {
-                    popup: 'small-swal-popup', // Tambahkan kelas CSS khusus
-                }// Menampilkan progress bar
-    }).then(() => {
-      window.location.hash = '#contact'; // Arahkan ke bagian #home setelah alert
-    });
-  });
-});
-</script>
 
 <!-- My JavaScript -->
 <script src="js/script.js"></script>
