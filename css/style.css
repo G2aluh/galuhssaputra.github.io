@@ -439,6 +439,38 @@ footer .credit a{
     
 }
 
+form#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form#contactForm input,
+form#contactForm textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form#contactForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form#contactForm button:hover {
+    background-color: #45a049;
+}
+
+
 
 /* media queries */
 

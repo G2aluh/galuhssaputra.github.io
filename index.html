@@ -127,18 +127,29 @@
 
 <!-- Contact section start -->
 <section id="contact" class="contact">
-    <h2><span>Hubungi</span> Saya</h2>
-    <p>Ini adalah tempat saya tinggal, silahkan datang kapanpun anda mau!</p>
+  <h2><span>Hubungi</span> Saya</h2>
+  <p>Ini adalah tempat saya tinggal, silahkan datang kapanpun anda mau!</p>
 
+  <div class="row">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31597.984319566316!2d112.43535204999998!3d-8.127114999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7899d0ca427c55%3A0x56dc2a4db88c0a3d!2sOlak%20Alen%2C%20Kec.%20Selorejo%2C%20Kabupaten%20Blitar%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1732524684525!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+  </div>
 
-    <div class="row">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31597.984319566316!2d112.43535204999998!3d-8.127114999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7899d0ca427c55%3A0x56dc2a4db88c0a3d!2sOlak%20Alen%2C%20Kec.%20Selorejo%2C%20Kabupaten%20Blitar%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1732524684525!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-
-        
-
-    </div>
+  <!-- Formulir Pengiriman Pesan -->
+  <form id="contactForm" action="https://formspree.io/f/mldeavew" method="POST">
+      <label for="name">Nama:</label>
+      <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+      
+      <label for="message">Pesan:</label>
+      <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+      
+      <button type="submit">Kirim Pesan</button>
+  </form>
 </section>
 <!-- Contact section end -->
+
 
 
 <!-- footer -->
